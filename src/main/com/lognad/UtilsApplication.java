@@ -1,4 +1,4 @@
-package com.lognad.utils;
+package com.lognad;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
