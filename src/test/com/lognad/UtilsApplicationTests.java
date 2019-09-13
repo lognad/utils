@@ -23,6 +23,12 @@ public class UtilsApplicationTests {
     public void MaxSquareLength() {
         List<Point> points = new ArrayList<>();
 
+        //  square
+        points.add(new Point(104, 4));
+        points.add(new Point(4, 4));
+        points.add(new Point(4, 104));
+        points.add(new Point(100, 100));
+
         points.add(new Point(1, 4));
         points.add(new Point(2, 3));
         points.add(new Point(3, 4));
@@ -30,17 +36,23 @@ public class UtilsApplicationTests {
         points.add(new Point(1, 2));
         points.add(new Point(3, 2));
         points.add(new Point(4, 1));
-        points.add(new Point(1, 1));
+//        points.add(new Point(1, 1));
         points.add(new Point(3, 1));
         points.add(new Point(7, 1));
         points.add(new Point(9, 1));
+
+        //  square
+        points.add(new Point(20, 1));
+        points.add(new Point(1, 20));
+        points.add(new Point(1, 1));
+        points.add(new Point(20, 20));
 
 
         CheckSquareVertices squareVertices = new CheckSquareVertices();
         int maxSideLength = squareVertices.findMaxSquareSide(points);
 
-        System.out.println("MAXIMUN SIDE LENGTH FROM POSSIBLE SQUARES FROM GIVEN POINTS: " + maxSideLength);
-        Assert.assertEquals(maxSideLength, 3);
+        System.out.println("MAXIMUM SIDE LENGTH FROM POSSIBLE SQUARES FROM GIVEN POINTS: " + maxSideLength);
+        Assert.assertEquals(19, maxSideLength);
     }
 
 }

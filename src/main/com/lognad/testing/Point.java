@@ -1,6 +1,8 @@
 package com.lognad.testing;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.ToString;
 
 /**
  * Author: edangol
@@ -8,6 +10,8 @@ import lombok.AllArgsConstructor;
  * Project: utils
  * Description:
  **/
+@Data
+@ToString
 @AllArgsConstructor
 public class Point {
     public int X;
