@@ -8,7 +8,7 @@ import java.util.List;
  * Author: edangol
  * Date: 13/09/2019 - 11:42
  * Project: utils
- * Description:
+ * Description: From a list of point find the possible squares and returns the maximum value of length of side of square
  **/
 public class CheckSquareVertices {
     public static void main(String[] args) {
