@@ -1,4 +1,4 @@
-package com.lognad.testing;
+package com.lognad.problems.maxsquarelength;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

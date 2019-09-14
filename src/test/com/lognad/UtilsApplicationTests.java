@@ -1,7 +1,7 @@
 package com.lognad;
 
-import com.lognad.testing.CheckSquareVertices;
-import com.lognad.testing.Point;
+import com.lognad.problems.maxsquarelength.CheckSquareVertices;
+import com.lognad.problems.maxsquarelength.Point;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

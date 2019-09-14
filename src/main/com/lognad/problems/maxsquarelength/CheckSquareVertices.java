@@ -1,4 +1,4 @@
-package com.lognad.testing;
+package com.lognad.problems.maxsquarelength;
 
 import java.util.ArrayList;
 import java.util.HashMap;
