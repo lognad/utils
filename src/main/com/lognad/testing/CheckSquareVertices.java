@@ -140,7 +140,6 @@ public class CheckSquareVertices {
                         //  break loop for current secondary col.
                         if (breakLoop) break;
                     }
-
                 }
             }
         }
