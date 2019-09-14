@@ -18,7 +18,7 @@ public class CheckSquareVertices {
         points.add(new Point(104, 4));
         points.add(new Point(4, 4));
         points.add(new Point(4, 104));
-        points.add(new Point(100, 104));
+        points.add(new Point(104, 104));
 
         points.add(new Point(1, 4));
         points.add(new Point(2, 3));
@@ -33,10 +33,10 @@ public class CheckSquareVertices {
         points.add(new Point(9, 1));
 
         //  square
-        points.add(new Point(20, 1));
-        points.add(new Point(1, 20));
+        points.add(new Point(21, 1));
+        points.add(new Point(1, 21));
         points.add(new Point(1, 1));
-        points.add(new Point(20, 20));
+        points.add(new Point(21, 21));
 
 
         CheckSquareVertices squareVertices = new CheckSquareVertices();
@@ -78,12 +78,12 @@ public class CheckSquareVertices {
             //  iterate through the points present in the above primary col and get first possible point.
             for (int j = 0; j < col.size() - 1; j++) {
                 Point p1 = col.get(j);
-                System.out.println(p1.toString());
+                System.out.println("p1: " + p1.toString());
 
                 //  iterate through the points present in the above primary col and get second possible point.
                 for (int k = j + 1; k < col.size(); k++) {
                     Point p2 = col.get(k);
-                    System.out.println(p2.toString());
+                    System.out.println("\tp2: " + p2.toString());
                     int reqSideLength = Math.abs(p1.Y - p2.Y);
                     //  skip checking for point p2 if side[p1, p2] is smaller than the maxLength.
                     if (reqSideLength <= maxLength) break;
@@ -92,6 +92,9 @@ public class CheckSquareVertices {
                     for (int l = i + 1; l < columns.length; l++) {
                         // secondary col
                         List<Point> colToCheck = (List<Point>) columns[l];
+                        //  skip if contains only one point.
+                        if (colToCheck.size() < 2) continue;
+
                         boolean p3Exist = false;
                         boolean p4Exist = false;
                         boolean breakLoop = false;
@@ -114,26 +117,28 @@ public class CheckSquareVertices {
                             //  if sides are equal, possible square vertex.
                             else {
                                 if (p1.Y == chk.Y) {
-                                    System.out.println(chk.toString());
+                                    System.out.println("\t\tp3: " + chk.toString());
                                     p3Exist = true;
                                 } else if (p2.Y == chk.Y) {
-                                    System.out.println(chk.toString());
+                                    System.out.println("\t\t\tp4: " + chk.toString());
                                     p4Exist = true;
                                 }
+                            }
+
+                            //  no need to check further down the secondary col if all four vertices of the square is already found.
+                            //  check if the currently found square side length is greater than the one we have.
+                            if (p3Exist == true && p4Exist == true) {
+                                // then we have a square here.
+                                if (maxLength < reqSideLength)
+                                    maxLength = reqSideLength;
+
+                                breakLoop = true;
+                                break;
                             }
                         }
 
                         //  break loop for current secondary col.
                         if (breakLoop) break;
-
-                        //  no need to check further down the secondary col if all four vertices of the square is already found.
-                        //  check if the currently found square side length is greater than the one we have.
-                        if (p3Exist == true && p4Exist == true) {
-                            // then we have a square here.
-                            if (maxLength < reqSideLength)
-                                maxLength = reqSideLength;
-                            break;
-                        }
                     }
 
                 }
